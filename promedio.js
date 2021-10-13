@@ -46,3 +46,26 @@ function calcularMediana(lista){
     }
     return Mediana;
 }
+
+// ********* Moda
+
+function calcularModa(lista) {
+    const listaCuenta = {};
+    lista.map(
+        function(elemento) {
+            if(listaCuenta[elemento]) {
+                listaCuenta[elemento] += 1;
+            }else {
+                listaCuenta[elemento] = 1;
+            }
+        }
+    );
+
+    const listaCuentaArray = Object.entries(listaCuenta).sort(
+        function(valorAcumulado2, elementoActual2){   
+                return valorAcumulado2[1] - elementoActual2[1];
+        }
+    );
+
+    return listaCuentaArray[listaCuentaArray.length - 1];
+}
